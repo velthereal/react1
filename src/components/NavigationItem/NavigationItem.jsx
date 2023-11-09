@@ -1,14 +1,22 @@
+import './NavigationItem.css';
+
 const NavigationItem = (props) => {
-	const { text, isUpperCaseText } = props;
-	let textToRender;
-	if(isUpperCaseText) {
-		textToRender = text.toUpperCase();
-	}
-	else {
-		textToRender = text;
-	}
+	const { text, isUpperCaseText, description, shouldRenderDescription } = props;
+	// let textToRender;
+
+	const descriptionSection = (
+		<div className="description">
+			{description}
+		</div>
+	);
+	
 	return (
-		<div>{ textToRender }</div>
+		<div className="common">
+			<div className="text">
+				{isUpperCaseText ? text.toUpperCase() : text}
+			</div>
+			{descriptionSection && descriptionSection}
+		</div>
 	)
 }
 
